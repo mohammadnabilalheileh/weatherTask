@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Modern weather forecast app with daily and hourly updates.">
+    <title>WeatherTask</title>
+    <link rel="stylesheet" href="weatherTask.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="container flex nav">
+                <img src="assets/images/logo.svg" alt="Logo">
+                <div class="units-wrapper">
+                    <button class="btn flex" id="unitsBtn">
+                        <img src="assets/images/icon-units.svg" alt="units" class= "units-icon">
+                        <p>Units</p>
+                        <img src="assets/images/icon-dropdown.svg" alt="dropdown" class="dropdown-icon">
+                    </button>
+
+                    <div class="units-dropdown" id="unitsDropdown">
+                        <button class="switch-btn border-white">Switch to Imperial</button>
+
+                        <div class="section">
+                        <p class="section-title">Temperature</p>
+                        <div class="option selected metric">
+                            Celsius (°C)
+                            <img src="assets/images/icon-checkmark.svg" class="checkmark show">
+                        </div>
+                        <div class="option imperial">
+                            Fahrenheit (°F)
+                            <img src="assets/images/icon-checkmark.svg" class="checkmark">
+                        </div>
+                        </div>
+
+                        <div class="section">
+                        <p class="section-title">Wind Speed</p>
+                        <div class="option selected metric">
+                            km/h
+                            <img src="assets/images/icon-checkmark.svg" class="checkmark show">
+                        </div>
+                        <div class="option imperial">
+                            mph
+                            <img src="assets/images/icon-checkmark.svg" class="checkmark">
+                        </div>
+                        </div>
+
+                        <div class="section">
+                        <p class="section-title">Precipitation</p>
+                        <div class="option selected metric">
+                            Millimeters (mm)
+                            <img src="assets/images/icon-checkmark.svg" class="checkmark show">
+                        </div>
+                        <div class="option imperial">
+                            Inches (in)
+                            <img src="assets/images/icon-checkmark.svg" class="checkmark">
+                        </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class=" search-section container flex coulmn justify-center align-center">
+            <h1>How's the sky looking today?</h1>
+
+            <div class="search-section-btn flex">
+                <div class="search-stack">
+                    <div class="search-input flex align-center">
+                        <img src="assets/images/icon-search.svg" class="search-icon">
+
+                        <input
+                            id="search-text"
+                            type="text"
+                            placeholder="Search for a place..."
+                            aria-label="Search for a city"
+                        />
+
+                    </div>
+
+                    <div class="search-loading flex align-center display-none" role="status" aria-live="polite">
+                        <img src="assets/images/icon-loading.svg" class="loding-search-icon">
+                        <p class="search-in-progress">Search in progress</p>
+                    </div>
+                </div>
+
+                <button class="search-btn" type="button">Search</button>
+            </div>
+
+        </div>
+
+        <div class="main-con">
+            <div class="today-section flex div1 container align-center  justify-center bg-today border-radius">
+                <div class="loading-con flex coulmn align-center" aria-live="polite">
+                    <span class="loader"></span>
+                    <p class="loading-text">Loading...</p>
+                </div>
+                <div class="main-cont-today flex coulmn align-center">
+                <div class="flex coulmn align-center">
+                    <p class="location"></p>
+                    <p class="date"></p>
+                </div>
+                <div class="flex align-center weather-today justify-space-between">
+                    <img class="weather-icon display-none"/>
+                    <p class="temperature  margin0"></p>
+                </div>
+                </div>
+
+            </div>
+
+            <div class="grid div2 info-card-con">
+                <div class="info-card flex coulmn">
+                    <p class="info-card-title">Feels Like</p>
+                    <p class="info-card-value feels-like">-</p>
+                </div>
+
+                <div class="info-card flex coulmn">
+                    <p class="info-card-title">Humidity</p>
+                    <p class="info-card-value humidity">-</p>
+                </div>
+
+                <div class="info-card flex coulmn">
+                    <p class="info-card-title">Wind Speed</p>
+                    <p class="info-card-value wind">-</p>
+                </div>
+
+                <div class="info-card flex coulmn">
+                    <p class="info-card-title">Precipitation</p>
+                    <p class="info-card-value precipitation">-</p>
+                </div>
+
+            </div>
+
+            <div class="div3 flex coulmn">
+                    <p class="text-start">Daily forecast</p>
+
+                <div class="forecast grid div3 container">
+                    <div class="flex coulmn card align-center border-radius">
+                        <p></p>
+                        <div class="flex temp-con-L-H ">
+                            <p class="lower-temp"></p>
+                            <p class="heighr-temp"></p>
+                        </div>
+                    </div>
+                    <div class="flex coulmn card align-center border-radius">
+                        <p></p>
+                        <div class="flex temp-con-L-H ">
+                            <p class="lower-temp"></p>
+                            <p class="heighr-temp"></p>
+                        </div>
+                    </div>
+                    <div class="flex coulmn card align-center border-radius">
+                        <p></p>
+                        <div class="flex temp-con-L-H ">
+                            <p class="lower-temp"></p>
+                            <p class="heighr-temp"></p>
+                        </div>
+                    </div>
+                    <div class="flex coulmn card align-center border-radius">
+                        <p></p>
+                        <div class="flex temp-con-L-H ">
+                            <p class="lower-temp"></p>
+                            <p class="heighr-temp"></p>
+                        </div>
+                    </div>
+                    <div class="flex coulmn card align-center border-radius">
+                        <p></p>
+                        <div class="flex temp-con-L-H ">
+                            <p class="lower-temp"></p>
+                            <p class="heighr-temp"></p>
+                        </div>
+                    </div>
+                    <div class="flex coulmn card align-center border-radius">
+                        <p></p>
+                        <div class="flex temp-con-L-H ">
+                            <p class="lower-temp"></p>
+                            <p class="heighr-temp"></p>
+                        </div>
+                    </div>
+                    <div class="flex coulmn card align-center border-radius">
+                        <p></p>
+                        <div class="flex temp-con-L-H ">
+                            <p class="lower-temp"></p>
+                            <p class="heighr-temp"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hour-forecast container div4 flex coulmn align-center justify-space-between">
+                <div class="flex align-center justify-space-between width-100">
+                    <p class="hour-title">Hourly forecast</p>
+                    <div class="day-dropdown">
+                        <button class="btn flex day-btn" id="dayBtn" type="button">
+                            <p>-</p>
+                            <img src="assets/images/icon-dropdown.svg" alt="dropdown" class="dropdown-icon">
+                        </button>
+                        <ul class="day-dropdown-menu" id="dayMenu">
+                            <li class="active"></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="hour-temp-con flex align-center justify-space-between width-100">
+                    <div class="hour-icon-con flex align-center">
+                        <p class="hour-time"></p>
+                    </div>
+                    <p class="hour-temp"></p>
+                </div>
+
+                <div class="hour-temp-con flex align-center justify-space-between width-100">
+                    <div class="hour-icon-con flex align-center">
+                        <p class="hour-time"></p>
+                    </div>
+                    <p class="hour-temp"></p>
+                </div>
+
+                <div class="hour-temp-con flex align-center justify-space-between width-100">
+                    <div class="hour-icon-con flex align-center">
+                        <p class="hour-time"></p>
+                    </div>
+                    <p class="hour-temp"></p>
+                </div>
+
+                <div class="hour-temp-con flex align-center justify-space-between width-100">
+                    <div class="hour-icon-con flex align-center">
+                        <p class="hour-time"></p>
+                    </div>
+                    <p class="hour-temp"></p>
+                </div>
+
+                <div class="hour-temp-con flex align-center justify-space-between width-100">
+                    <div class="hour-icon-con flex align-center">
+                        <p class="hour-time"></p>
+                    </div>
+                    <p class="hour-temp"></p>
+                </div>
+
+                <div class="hour-temp-con flex align-center justify-space-between width-100">
+                    <div class="hour-icon-con flex align-center">
+                        <p class="hour-time"></p>
+                    </div>
+                    <p class="hour-temp"></p>
+                </div>
+
+                <div class="hour-temp-con flex align-center justify-space-between width-100">
+                    <div class="hour-icon-con flex align-center">
+                        <p class="hour-time"></p>
+                    </div>
+                    <p class="hour-temp"></p>
+                </div>
+
+                <div class="hour-temp-con flex align-center justify-space-between width-100">
+                    <div class="hour-icon-con flex align-center">
+                        <p class="hour-time"></p>
+                    </div>
+                    <p class="hour-temp"></p>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="flex coulmn align-center error-fetch-con display-none">
+            <img src="assets/images/icon-error.svg" class = "error-icon">
+            <p class="worning-text">Somthing went wrong</p>
+            <p class="error-desc-text">We couldn't connect to the server (API error). Please try again in a few moments.</p>
+            <button class="btn flex retry-btn">
+                <img src="assets/images/icon-retry.svg" class = "retry-icon">
+                Retry
+            </button>
+        </div>
+
+        <div class="flex align-center justify-center">
+        <p class="display-none no-result">No search result found!</p>
+        </div>
+
+    </main>
+    <script src="weatherTask.js"></script>
+</body>
+</html>
